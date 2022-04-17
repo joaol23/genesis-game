@@ -7,6 +7,11 @@ var score = 0;
 // 2 = vermelho
 // 3 = azul
 
+//sons
+const soundClick = document.querySelector(`#sound-click`);
+const soundLose = document.querySelector(`#sound-lose`);
+soundClick.volume = 0.2;
+
 const colors = document.querySelectorAll(`[data-click]`);
 
 colors.forEach((value) => {
@@ -44,7 +49,7 @@ let checkOrder = () => {
     clickedOrder.forEach((value, i) => {
         if (value != order[i]) {
             loseGame();
-            exit();
+            return;
         }
     })
 
@@ -55,6 +60,7 @@ let checkOrder = () => {
 }
 
 let click = (color) => {
+    soundClick.play();
     clickedOrder.push(color);
     createElementByColor(color).classList.add(`selected`);
 
@@ -74,6 +80,7 @@ let nextLevel = () => {
 }
 
 let loseGame = () => {
+    soundLose.play();
     alert(`Você perdeu o jogo!`);
     order = [];
     clickedOrder = [];
