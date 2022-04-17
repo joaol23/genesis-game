@@ -6,6 +6,13 @@ var score = 0;
 // 1 = amarelo
 // 2 = vermelho
 // 3 = azul
+const startGameButton = document.querySelector(`.start-game`);
+const container = document.querySelector(`.container`);
+
+startGameButton.onclick = () => {
+    container.style.display = 'none';
+    playGame();
+}
 
 //sons
 const soundClick = document.querySelector(`#sound-click`);
@@ -30,7 +37,6 @@ let shuffleOrder = () => {
     order.forEach((value, i) => {
         let elementColor = createElementByColor(value);
         lightColor(elementColor, Number(i) + 1);
-
     })
 }
 
@@ -63,7 +69,6 @@ let click = (color) => {
     soundClick.play();
     clickedOrder.push(color);
     createElementByColor(color).classList.add(`selected`);
-
     setTimeout(() => {
         createElementByColor(color).classList.remove(`selected`);
         checkOrder();
@@ -85,14 +90,12 @@ let loseGame = () => {
     order = [];
     clickedOrder = [];
 
-    playGame();
+    container.style.display = 'block';
 }
 
 let playGame = () => {
     score = 0;
-    alert("Bem vindo ao Genesis! Iniciando novo jogo!");
+    // alert("Bem vindo ao Genesis! Iniciando novo jogo!");
 
     nextLevel();
 }
-
-playGame();

@@ -18,11 +18,12 @@ body {
 
 .genius {
     display: grid;
-    grid-template-areas: "verde vermelho"
-    "amarelo azul";
+    grid-template-areas:
+        "verde vermelho"
+        "amarelo azul";
     grid-gap: 10px;
     background-color: #ffffff;
-    border: 1px solid #ffffff;
+    border: 10px solid #000;
     width: 100vh;
     height: 100vh;
     border-radius: 100%;
@@ -53,5 +54,66 @@ body {
 }
 
 .selected {
-    opacity: 0.8;
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+.color {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.color:active {
+    width: 100%;
+    height: 100%;
+}
+
+.color:active {
+    transform: scale(0.98);
+}
+
+.color:focus {
+    transform: scale(0.98);
+}
+
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.container-start {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fundo-preto {
+    background-color: rgb(20, 20, 20);
+    width: 25vh;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 5px solid #000;
+}
+
+.start-game {
+    cursor: pointer;
+    background-color: rgb(82, 5, 224);
+    border-radius: 20px;
+    border: 1px solid rgb(131, 117, 255);
+    padding: 15px;
+    transition: all 0.5s;
+    font-size: 15px;
+}
+
+.start-game:hover {
+    padding: 20px;
+    font-size: 17px;
 }

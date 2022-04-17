@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genesis</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="main-game">
-        <div class="genius">
-            <div class="blue" data-click="3"></div>
-            <div class="yellow" data-click="1"></div>
-            <div class="red" data-click="2"></div> 
-            <div class="green" data-click="0"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Genesis</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="main-game">
+            <div class="genius">
+                <div class="blue color btn-9" data-click="3"></div>
+                <div class="yellow color" data-click="1"></div>
+                <div class="red color" data-click="2"></div>
+                <div class="green color" data-click="0"></div>
+            </div>
         </div>
-    </div>
-    <audio src="sons/resgate.mp3" preload="auto" id="sound-click"></audio>
-    <audio src="sons/lost-sound.wav" preload="auto" id="sound-lose"></audio>
-    <script src="js/geral.js"></script>
-</body>
+        <div class="container">
+            <div class="container-start">
+                <div class="fundo-preto">
+                    <button class="start-game">Iniciar jogo</button>
+                </div>
+            </div>
+        </div>
+        <audio src="sons/resgate.mp3" preload="auto" id="sound-click"></audio>
+        <audio src="sons/lost-sound.wav" preload="auto" id="sound-lose"></audio>
+        <script src="js/geral.js"></script>
+    </body>
 </html>
