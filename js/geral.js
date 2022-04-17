@@ -1,6 +1,7 @@
 var order = [];
 var clickedOrder = [];
 var score = 0;
+var lose = false;
 
 // 0 = verde
 // 1 = amarelo
@@ -55,13 +56,14 @@ let checkOrder = () => {
     clickedOrder.forEach((value, i) => {
         if (value != order[i]) {
             loseGame();
-            return;
+            lose = true;
         }
     })
-
-    if (clickedOrder.length == order.length) {
-        alert(`Pontuação = ${score}\nVocê acertou! Iniciando próximo nível...`);
-        nextLevel();
+    if (!lose) {
+        if (clickedOrder.length == order.length) {
+            alert(`Pontuação = ${score}\nVocê acertou! Iniciando próximo nível...`);
+            nextLevel();
+        }
     }
 }
 
@@ -95,6 +97,7 @@ let loseGame = () => {
 
 let playGame = () => {
     score = 0;
+    lose = false;
     // alert("Bem vindo ao Genesis! Iniciando novo jogo!");
 
     nextLevel();
