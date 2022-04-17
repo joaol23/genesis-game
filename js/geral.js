@@ -7,20 +7,26 @@ var score = 0;
 // 2 = vermelho
 // 3 = azul
 
-const blue = document.querySelector(".blue");
-const green = document.querySelector(".green");
-const yellow = document.querySelector(".yellow");
-const red = document.querySelector(".red");
+const colors = document.querySelectorAll(`[data-click]`);
+
+colors.forEach((value) => {
+    value.onclick = () => {
+        let color = value.getAttribute(`data-click`);
+
+        click(color);
+    }
+})
 
 let shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4);
     order.push(colorOrder);
     clickedOrder = [];
 
-    for (i in order) {
-        let elementColor = createElementByColor(order[i]);
+    order.forEach((value, i) => {
+        let elementColor = createElementByColor(value);
         lightColor(elementColor, Number(i) + 1);
-    }
+
+    })
 }
 
 let lightColor = (element, number) => {
@@ -35,12 +41,12 @@ let lightColor = (element, number) => {
 }
 
 let checkOrder = () => {
-    for (let i in clickedOrder) {
-        if (clickedOrder[i] != order[i]) {
+    clickedOrder.forEach((value, i) => {
+        if (value != order[i]) {
             loseGame();
-            break;
+            exit();
         }
-    }
+    })
 
     if (clickedOrder.length == order.length) {
         alert(`Pontuação = ${score}\nVocê acertou! Iniciando próximo nível...`);
@@ -59,20 +65,12 @@ let click = (color) => {
 }
 
 let createElementByColor = (color) => {
-    if (color == 0) {
-        return green;
-    } else if (color == 1) {
-        return yellow;
-    } else if (color == 2) {
-        return red;
-    } else if (color == 3) {
-        return blue;
-    }
+    return document.querySelector(`[data-click="${color}"]`);
 }
 
 let nextLevel = () => {
-    score++;
     shuffleOrder();
+    score++;
 }
 
 let loseGame = () => {
@@ -88,22 +86,6 @@ let playGame = () => {
     alert("Bem vindo ao Genesis! Iniciando novo jogo!");
 
     nextLevel();
-}
-
-green.onclick = () => {
-    click(0);
-}
-
-blue.onclick = () => {
-    click(3);
-}
-
-red.onclick = () => {
-    click(2);
-}
-
-yellow.onclick = () => {
-    click(1);
 }
 
 playGame();
